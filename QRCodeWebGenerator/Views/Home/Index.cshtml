@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">ASP.NET WEB QR CODE GENERATOR</h1>
+        
+    </section>
+
+    <div class="row">
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+            
+        </section>
+        <section class="col-md-4" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle"></h2>
+
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                <div class="form-inline">
+                    <div class="form-group">
+                        @Html.Label("")
+                        @Html.TextBox("text", null, new { @class = "form-control center" , @placeholder="Enter the text/code here..."})
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate</button>
+                </div>
+
+            }
+
+            @if (ViewBag.QRCodeImage != null)
+            {
+                <h3>QR Code:</h3>
+                <img src="@ViewBag.QRCodeImage" alt="QR Code" class="qrCodeimg" />
+            }
+
+        </section>
+        <section class="col-md-4" aria-labelledby="hostingTitle">
+            
+        </section>
+    </div>
+</main>
+
+<style>
+
+
+    #title{
+        text-align: center;
+        margin-bottom: 5%;
+    }
+    h3{
+        margin-top: 5%;
+    }
+    .center {
+        margin: 0 auto;
+    }
+
+    .qrCodeimg {
+        width: 260px;
+        height: 250px;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .form-inline {
+        display: flex;
+    }
+
+    .form-group {
+        margin-right: 10px; /* Adjust this value as needed */
+    }
+
+    .btn-primary {
+        display: inline-block;
+       
+    }
+</style>
